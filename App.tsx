@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeroScene, QuantumComputerScene } from './components/QuantumScene';
 import { SurfaceCodeDiagram, TransformerDecoderDiagram, PerformanceMetricDiagram } from './components/Diagrams';
-import { ArrowDown, Menu, X, BookOpen } from 'lucide-react';
+import { ArrowDown, Menu, X, BookOpen, ChevronDown } from 'lucide-react';
 
 const AuthorCard = ({ name, role, delay }: { name: string, role: string, delay: string }) => {
   return (
@@ -14,6 +14,34 @@ const AuthorCard = ({ name, role, delay }: { name: string, role: string, delay: 
       <h3 className="font-serif text-2xl text-stone-900 text-center mb-3">{name}</h3>
       <div className="w-12 h-0.5 bg-nobel-gold mb-4 opacity-60"></div>
       <p className="text-xs text-stone-500 font-bold uppercase tracking-widest text-center leading-relaxed">{role}</p>
+    </div>
+  );
+};
+
+const AccordionItem = ({ title, children }: { title: string, children: React.ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-stone-200 last:border-0">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full py-5 flex justify-between items-center text-left group focus:outline-none"
+      >
+        <span className={`font-serif text-xl transition-colors duration-300 ${isOpen ? 'text-nobel-gold' : 'text-stone-800 group-hover:text-nobel-gold'}`}>
+          {title}
+        </span>
+        <ChevronDown 
+          size={20} 
+          className={`text-nobel-gold transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+        />
+      </button>
+      <div 
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-48 opacity-100 mb-4' : 'max-h-0 opacity-0'}`}
+      >
+        <div className="text-stone-600 leading-relaxed text-base pr-4">
+          {children}
+        </div>
+      </div>
     </div>
   );
 };
@@ -150,23 +178,35 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* The Science: Surface Code */}
+        {/* The Science: Experiencias */}
         <section id="science" className="py-24 bg-white border-t border-stone-100">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 text-stone-600 text-xs font-bold tracking-widest uppercase rounded-full mb-6 border border-stone-200">
                             <BookOpen size={14}/> THE SYSTEM
                         </div>
-                        <h2 className="font-serif text-4xl md:text-5xl mb-6 text-stone-900">Experiencias</h2>
-                        <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-                           In a surface code, "Data Qubits" hold the quantum information, while "Stabilizer Qubits" interspersed between them act as watchdogs. They measure parity checks (X and Z type) to detect errors without destroying the quantum state.
-                        </p>
-                        <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-                            When a data qubit flips, adjacent stabilizers light up. The pattern of these lights is the "syndrome." The decoder's job is to look at the syndrome and guess which data qubit flipped.
-                        </p>
+                        <h2 className="font-serif text-4xl md:text-5xl mb-8 text-stone-900">Experiencias</h2>
+                        
+                        <div className="mt-2">
+                           <AccordionItem title="Sesiones Individuales">
+                             Identificación precisa y disolución de patrones inconscientes mediante test muscular y protocolos de resonancia, restaurando tu coherencia bioenergética para desbloquear situaciones específicas en tu vida.
+                           </AccordionItem>
+                           <AccordionItem title="Programas Cuánticos">
+                             Procesos inmersivos de 6 a 12 semanas diseñados para generar saltos cuánticos en áreas fundamentales: Abundancia Financiera, Relaciones Conscientes y Propósito Vital.
+                           </AccordionItem>
+                           <AccordionItem title="Resonancia Empresarial">
+                             Consultoría estratégica para líderes y fundadores. Alineamos la estructura energética de tu negocio para eliminar fricciones sistémicas y potenciar un crecimiento orgánico y expansivo.
+                           </AccordionItem>
+                           <AccordionItem title="Talleres de Frecuencia">
+                             Experiencias grupales de alto impacto donde utilizamos sonido, movimiento y consciencia para elevar tu vibración basal y anclar nuevos estados de posibilidad.
+                           </AccordionItem>
+                           <AccordionItem title="Mentoría Estratégica">
+                             Acompañamiento 1 a 1 de alto nivel para visionarios que buscan integrar su diseño humano y energético con sus decisiones de negocio e impacto global.
+                           </AccordionItem>
+                        </div>
                     </div>
-                    <div>
+                    <div className="lg:sticky lg:top-28">
                         <SurfaceCodeDiagram />
                     </div>
                 </div>
