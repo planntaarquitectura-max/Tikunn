@@ -7,7 +7,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeroScene, QuantumComputerScene } from './components/QuantumScene';
 import { SurfaceCodeDiagram, TransformerDecoderDiagram, PerformanceMetricDiagram } from './components/Diagrams';
-import { ArrowDown, Menu, X, BookOpen, ChevronDown } from 'lucide-react';
+import { ArrowDown, Menu, X, BookOpen, ChevronDown, Calendar } from 'lucide-react';
 
 const AuthorCard = ({ name, role, delay }: { name: string, role: string, delay: string }) => {
   return (
@@ -44,6 +44,44 @@ const AccordionItem = ({ title, children }: { title: string, children: React.Rea
         </div>
       </div>
     </div>
+  );
+};
+
+const CourseBadge = () => {
+  return (
+    <a 
+      href="#agenda" 
+      onClick={(e) => {
+        e.preventDefault();
+        const element = document.getElementById('agenda');
+        if (element) {
+          const headerOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+      }}
+      className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-20 flex items-center justify-center w-32 h-32 group cursor-pointer animate-fade-in hover:scale-105 transition-transform duration-300"
+    >
+      {/* Rotating Text Ring */}
+      <div className="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]">
+         <svg viewBox="0 0 100 100" width="100%" height="100%" className="overflow-visible">
+           <defs>
+             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+           </defs>
+           <text fontSize="10.5">
+             <textPath xlinkHref="#circlePath" className="font-serif font-bold tracking-[0.18em] uppercase fill-stone-800">
+               • Próximos Cursos • Inscripciones Abiertas
+             </textPath>
+           </text>
+         </svg>
+      </div>
+      
+      {/* Center Circle */}
+      <div className="absolute w-14 h-14 bg-nobel-gold rounded-full flex items-center justify-center text-white shadow-lg shadow-nobel-gold/30 border-2 border-white group-hover:bg-stone-900 transition-colors duration-300">
+         <Calendar size={24} className="stroke-[1.5]" />
+      </div>
+    </a>
   );
 };
 
@@ -156,6 +194,10 @@ const App: React.FC = () => {
              </a>
           </div>
         </div>
+
+        {/* Floating Course Badge */}
+        <CourseBadge />
+
       </header>
 
       <main>
