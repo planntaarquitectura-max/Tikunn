@@ -1,4 +1,5 @@
 
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -264,7 +265,7 @@ const App: React.FC = () => {
                 <div className="md:col-span-5 relative">
                     <div className="aspect-[3/4] md:aspect-auto md:h-full bg-stone-900 rounded-xl overflow-hidden relative border border-stone-200 shadow-md">
                         <img 
-                          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop" 
+                          src="IMG_4072.JPG" 
                           alt="Sandy Alvo" 
                           className="w-full h-full object-cover opacity-90" 
                         />
