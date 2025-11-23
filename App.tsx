@@ -60,7 +60,7 @@ const App: React.FC = () => {
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-stone-600">
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
-            <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">The Surface Code</a>
+            <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Impact</a>
             <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
             <a 
@@ -83,7 +83,7 @@ const App: React.FC = () => {
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-[#F9F8F4] flex flex-col items-center justify-center gap-8 text-xl font-serif animate-fade-in">
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
-            <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">The Science</a>
+            <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Impact</a>
             <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
             <a 
@@ -158,7 +158,7 @@ const App: React.FC = () => {
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 text-stone-600 text-xs font-bold tracking-widest uppercase rounded-full mb-6 border border-stone-200">
                             <BookOpen size={14}/> THE SYSTEM
                         </div>
-                        <h2 className="font-serif text-4xl md:text-5xl mb-6 text-stone-900">The Surface Code</h2>
+                        <h2 className="font-serif text-4xl md:text-5xl mb-6 text-stone-900">Experiencias</h2>
                         <p className="text-lg text-stone-600 mb-6 leading-relaxed">
                            In a surface code, "Data Qubits" hold the quantum information, while "Stabilizer Qubits" interspersed between them act as watchdogs. They measure parity checks (X and Z type) to detect errors without destroying the quantum state.
                         </p>
