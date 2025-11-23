@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -89,7 +90,7 @@ const App: React.FC = () => {
           <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-stone-600">
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
             <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
-            <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Impact</a>
+            <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Biografía</a>
             <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
             <a 
               href="https://doi.org/10.1038/s41586-024-08148-8" 
@@ -112,7 +113,7 @@ const App: React.FC = () => {
         <div className="fixed inset-0 z-40 bg-[#F9F8F4] flex flex-col items-center justify-center gap-8 text-xl font-serif animate-fade-in">
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
             <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
-            <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Impact</a>
+            <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Biografía</a>
             <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
             <a 
               href="https://doi.org/10.1038/s41586-024-08148-8" 
@@ -257,30 +258,39 @@ const App: React.FC = () => {
             </div>
         </section>
 
-        {/* Impact */}
+        {/* Impact / Biografía */}
         <section id="impact" className="py-24 bg-white border-t border-stone-200">
              <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12">
                 <div className="md:col-span-5 relative">
-                    <div className="aspect-square bg-[#F5F4F0] rounded-xl overflow-hidden relative border border-stone-200 shadow-inner">
-                        <QuantumComputerScene />
-                        <div className="absolute bottom-4 left-0 right-0 text-center text-xs text-stone-400 font-serif italic">Simulation of the Sycamore Processor environment</div>
+                    <div className="aspect-[3/4] md:aspect-auto md:h-full bg-stone-900 rounded-xl overflow-hidden relative border border-stone-200 shadow-md">
+                        <img 
+                          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop" 
+                          alt="Sandy Alvo" 
+                          className="w-full h-full object-cover opacity-90" 
+                        />
                     </div>
                 </div>
                 <div className="md:col-span-7 flex flex-col justify-center">
-                    <div className="inline-block mb-3 text-xs font-bold tracking-widest text-stone-500 uppercase">IMPACT</div>
-                    <h2 className="font-serif text-4xl mb-6 text-stone-900">Towards Fault Tolerance</h2>
+                    <div className="inline-block mb-3 text-xs font-bold tracking-widest text-stone-500 uppercase">BIOGRAFÍA</div>
+                    <h2 className="font-serif text-4xl mb-6 text-stone-900">Sandy Alvo</h2>
                     <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-                        AlphaQubit maintains its advantage even as the code distance increases (up to distance 11). It handles realistic noise including cross-talk and leakage, effects that often cripple standard decoders.
+                        Nací en Guadalajara, Jalisco, un territorio donde la sabiduría ancestral convive con la visión de futuro. Durante más de once años he integrado principios de Física Cuántica, coherencia energética y neurociencia aplicada para transformar procesos personales, familiares, profesionales y empresariales.
+                    </p>
+                    <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+                        Fundé Tikunn como un espacio de expansión: un laboratorio de transformación donde desarrollo seminarios, clases maestras, experiencias de repatterning y proyectos que buscan elevar la conciencia colectiva y catalizar nuevas líneas de realidad.
+                    </p>
+                    <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+                        Mi camino integra la profundidad de los Programas de 12 Pasos, el trabajo con el niño interior y una especialización en Sistemas Disfuncionales y C-PTSD (Trauma Complejo). Resido en Baja California, donde equilibro mi práctica terapéutica con la maternidad consciente junto a mi esposo y nuestros hijos, integrando en mi trabajo la comprensión profunda de las dinámicas familiares y sistémicas.
                     </p>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                        By learning from data directly, machine learning decoders can adapt to the unique quirks of each quantum processor, potentially reducing the hardware requirements for useful quantum computing.
+                        Acompaño a empresarios, líderes y familias de alto rendimiento a disolver interferencias inconscientes, activar campos de coherencia y amplificar impacto, claridad y propósito desde una comprensión profunda de la dinámica humana y la expansión de la conciencia.
                     </p>
                     
                     <div className="p-6 bg-[#F9F8F4] border border-stone-200 rounded-lg border-l-4 border-l-nobel-gold">
                         <p className="font-serif italic text-xl text-stone-800 mb-4">
-                            "Our work illustrates the ability of machine learning to go beyond human-designed algorithms by learning from data directly, highlighting machine learning as a strong contender for decoding in quantum computers."
+                            “The extraordinary is always possible, no matter what.”
                         </p>
-                        <span className="text-sm font-bold text-stone-500 tracking-wider uppercase">— Bausch et al., Nature (2024)</span>
+                        <span className="text-sm font-bold text-stone-500 tracking-wider uppercase">— Chloe Faith Wordsworth</span>
                     </div>
                 </div>
              </div>
