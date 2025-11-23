@@ -1,5 +1,4 @@
 
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -92,6 +91,7 @@ const App: React.FC = () => {
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
             <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Biografía</a>
+            <a href="#agenda" onClick={scrollToSection('agenda')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Agenda</a>
             <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
             <a 
               href="https://doi.org/10.1038/s41586-024-08148-8" 
@@ -115,6 +115,7 @@ const App: React.FC = () => {
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
             <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Biografía</a>
+            <a href="#agenda" onClick={scrollToSection('agenda')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Agenda</a>
             <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
             <a 
               href="https://doi.org/10.1038/s41586-024-08148-8" 
@@ -263,11 +264,11 @@ const App: React.FC = () => {
         <section id="impact" className="py-24 bg-white border-t border-stone-200">
              <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12">
                 <div className="md:col-span-5 relative">
-                    <div className="aspect-[3/4] md:aspect-auto md:h-full bg-stone-900 rounded-xl overflow-hidden relative border border-stone-200 shadow-md">
+                    <div className="aspect-[3/4] md:aspect-auto md:h-full bg-stone-100 rounded-xl overflow-hidden relative border border-stone-200 shadow-md">
                         <img 
-                          src="IMG_4072.JPG" 
+                          src="components/IMG_4072.JPG" 
                           alt="Sandy Alvo" 
-                          className="w-full h-full object-cover opacity-90" 
+                          className="w-full h-full object-contain opacity-90" 
                         />
                     </div>
                 </div>
@@ -292,6 +293,32 @@ const App: React.FC = () => {
                             “The extraordinary is always possible, no matter what.”
                         </p>
                         <span className="text-sm font-bold text-stone-500 tracking-wider uppercase">— Chloe Faith Wordsworth</span>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        {/* Agenda */}
+        <section id="agenda" className="py-24 bg-[#F9F8F4] border-t border-stone-200">
+             <div className="container mx-auto px-6">
+                <div className="max-w-4xl mx-auto text-center">
+                    <div className="inline-block mb-3 text-xs font-bold tracking-widest text-stone-500 uppercase">CALENDARIO</div>
+                    <h2 className="font-serif text-4xl md:text-5xl mb-8 text-stone-900">Agenda</h2>
+                    <p className="text-lg text-stone-600 mb-12 leading-relaxed">
+                        Consulta la disponibilidad para sesiones individuales y las fechas de nuestros próximos encuentros presenciales y online.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                        <div className="p-8 bg-white border border-stone-200 rounded-xl hover:border-nobel-gold/50 transition-colors shadow-sm group">
+                            <h3 className="font-serif text-2xl mb-2 text-stone-900 group-hover:text-nobel-gold transition-colors">Sesiones 1:1</h3>
+                            <p className="text-stone-500 mb-6">Reserva tu espacio para un proceso profundo de transformación personal.</p>
+                            <button className="text-sm font-bold tracking-widest uppercase border-b border-stone-300 pb-1 hover:border-nobel-gold hover:text-nobel-gold transition-colors">Reservar Ahora</button>
+                        </div>
+                        <div className="p-8 bg-white border border-stone-200 rounded-xl hover:border-nobel-gold/50 transition-colors shadow-sm group">
+                            <h3 className="font-serif text-2xl mb-2 text-stone-900 group-hover:text-nobel-gold transition-colors">Próximos Talleres</h3>
+                            <p className="text-stone-500 mb-6">Inscripciones abiertas para "Resonancia Vital" - Octubre 2024.</p>
+                            <button className="text-sm font-bold tracking-widest uppercase border-b border-stone-300 pb-1 hover:border-nobel-gold hover:text-nobel-gold transition-colors">Ver Detalles</button>
+                        </div>
                     </div>
                 </div>
              </div>
@@ -346,15 +373,15 @@ const App: React.FC = () => {
 
       </main>
 
-      <footer className="bg-stone-900 text-stone-400 py-16">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-center md:text-left">
-                <div className="text-white font-serif font-bold text-2xl mb-2">Transforming Inner Patterns</div>
-                <p className="text-sm">Visualizing "Learning high-accuracy error decoding for quantum processors"</p>
+      <footer className="bg-stone-900 text-stone-400 py-16 border-t border-stone-800">
+        <div className="container mx-auto px-6 text-center">
+            <h4 className="font-serif text-xl text-white mb-6">Tikunn</h4>
+            <div className="font-serif text-lg text-stone-300 mb-3">
+                © 2025 Tikunn. Sesiones • Seminarios • Experiencias Cuánticas
             </div>
-        </div>
-        <div className="text-center mt-12 text-xs text-stone-600">
-            Based on research published in Nature (2024). Generated by AI.
+            <a href="mailto:info@tikunn.com" className="text-nobel-gold hover:text-white transition-colors text-sm font-medium tracking-wide">
+                Contacto: info@tikunn.com
+            </a>
         </div>
       </footer>
     </div>
