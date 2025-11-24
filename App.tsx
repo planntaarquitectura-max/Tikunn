@@ -5,21 +5,10 @@
 */
 
 import React, { useState, useEffect } from 'react';
-import { HeroScene, QuantumComputerScene } from './components/QuantumScene';
-import { SurfaceCodeDiagram, TransformerDecoderDiagram, PerformanceMetricDiagram } from './components/Diagrams';
-import { ArrowDown, Menu, X, BookOpen, ChevronDown, Calendar } from 'lucide-react';
+import { HeroScene } from './components/QuantumScene';
+import { ArrowDown, Menu, X, BookOpen, ChevronDown, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const AuthorCard = ({ name, role, delay }: { name: string, role: string, delay: string }) => {
-  return (
-    <div className="flex flex-col group animate-fade-in-up items-center p-8 bg-white rounded-xl border border-stone-200 shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-xs hover:border-nobel-gold/50" style={{ animationDelay: delay }}>
-      <h3 className="font-serif text-2xl text-stone-900 text-center mb-3">{name}</h3>
-      <div className="w-12 h-0.5 bg-nobel-gold mb-4 opacity-60"></div>
-      <p className="text-xs text-stone-500 font-bold uppercase tracking-widest text-center leading-relaxed">{role}</p>
-    </div>
-  );
-};
-
-const AccordionItem = ({ title, children }: { title: string, children: React.ReactNode }) => {
+const AccordionItem = ({ title, children }: { title: string, children?: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -42,6 +31,95 @@ const AccordionItem = ({ title, children }: { title: string, children: React.Rea
         <div className="text-stone-600 leading-relaxed text-base pr-4">
           {children}
         </div>
+      </div>
+    </div>
+  );
+};
+
+const TestimonialCarousel = () => {
+  const testimonials = [
+    {
+      quote: "Tikunn cambió mi perspectiva completamente. Logré desbloquear patrones que llevaba años repitiendo y encontrar una paz que no conocía.",
+      author: "María González",
+      role: "Emprendedora"
+    },
+    {
+      quote: "La claridad que obtuve en las sesiones es impresionante. Mi negocio fluye de una manera totalmente distinta desde que realineé mi energía.",
+      author: "Carlos Rodríguez",
+      role: "Director Creativo"
+    },
+    {
+      quote: "Una experiencia profunda y transformadora. Sandy tiene una capacidad única para ver lo que está oculto y guiarte hacia tu verdad.",
+      author: "Ana López",
+      role: "Arquitecta"
+    },
+     {
+      quote: "Las sesiones de repatterning son magia pura. Me siento más ligero, enfocado y con una nueva dirección en mi vida personal.",
+      author: "Javier Martínez",
+      role: "Consultor"
+    }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prev = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  return (
+    <div className="relative max-w-4xl mx-auto px-4 md:px-12">
+      <div className="overflow-hidden">
+        <div 
+            className="flex transition-transform duration-500 ease-in-out" 
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {testimonials.map((t, i) => (
+            <div key={i} className="w-full flex-shrink-0 px-4 text-center">
+              <div className="mb-6 text-nobel-gold">
+                <svg className="w-10 h-10 mx-auto opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21L14.017 18C14.017 16.896 14.789 15.547 15.422 14.501C15.118 14.501 14.914 14.501 14.914 14.501C12.358 14.501 10.259 12.441 10.259 9.85C10.259 7.29 12.33 5.379 14.869 5.379C17.408 5.379 19.507 7.439 19.507 9.85C19.507 14.591 16.516 19.743 14.017 21ZM5 21L5 18C5 16.896 5.772 15.547 6.406 14.501C6.101 14.501 5.897 14.501 5.897 14.501C3.341 14.501 1.242 12.441 1.242 9.85C1.242 7.29 3.313 5.379 5.852 5.379C8.391 5.379 10.49 7.439 10.49 9.85C10.49 14.591 7.499 19.743 5 21Z" />
+                </svg>
+              </div>
+              <p className="font-serif text-xl md:text-3xl text-stone-800 italic mb-8 leading-relaxed">"{t.quote}"</p>
+              <div>
+                <h4 className="font-bold text-stone-900 tracking-wide">{t.author}</h4>
+                <p className="text-stone-500 text-sm uppercase tracking-widest mt-1">{t.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Controls */}
+      <button 
+        onClick={prev} 
+        className="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-stone-400 hover:text-nobel-gold transition-colors focus:outline-none"
+        aria-label="Previous testimonial"
+      >
+        <ChevronLeft size={32} />
+      </button>
+      <button 
+        onClick={next} 
+        className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-stone-400 hover:text-nobel-gold transition-colors focus:outline-none"
+        aria-label="Next testimonial"
+      >
+        <ChevronRight size={32} />
+      </button>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-8">
+        {testimonials.map((_, i) => (
+            <button 
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentIndex ? 'bg-nobel-gold w-6' : 'bg-stone-300 hover:bg-stone-400'}`}
+                aria-label={`Go to testimonial ${i + 1}`}
+            />
+        ))}
       </div>
     </div>
   );
@@ -129,16 +207,8 @@ const App: React.FC = () => {
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
             <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Biografía</a>
+            <a href="#testimonials" onClick={scrollToSection('testimonials')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Testimonios</a>
             <a href="#agenda" onClick={scrollToSection('agenda')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Agenda</a>
-            <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
-            <a 
-              href="https://doi.org/10.1038/s41586-024-08148-8" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="px-5 py-2 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-colors shadow-sm cursor-pointer"
-            >
-              View Paper
-            </a>
           </div>
 
           <button className="md:hidden text-stone-900 p-2" onClick={() => setMenuOpen(!menuOpen)}>
@@ -153,17 +223,8 @@ const App: React.FC = () => {
             <a href="#introduction" onClick={scrollToSection('introduction')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
             <a href="#science" onClick={scrollToSection('science')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Experiencias</a>
             <a href="#impact" onClick={scrollToSection('impact')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Biografía</a>
+            <a href="#testimonials" onClick={scrollToSection('testimonials')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Testimonios</a>
             <a href="#agenda" onClick={scrollToSection('agenda')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Agenda</a>
-            <a href="#authors" onClick={scrollToSection('authors')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Authors</a>
-            <a 
-              href="https://doi.org/10.1038/s41586-024-08148-8" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              onClick={() => setMenuOpen(false)} 
-              className="px-6 py-3 bg-stone-900 text-white rounded-full shadow-lg cursor-pointer"
-            >
-              View Paper
-            </a>
         </div>
       )}
 
@@ -226,7 +287,7 @@ const App: React.FC = () => {
         {/* The Science: Experiencias */}
         <section id="science" className="py-24 bg-white border-t border-stone-100">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="max-w-4xl mx-auto">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 text-stone-600 text-xs font-bold tracking-widest uppercase rounded-full mb-6 border border-stone-200">
                             <BookOpen size={14}/> THE SYSTEM
@@ -251,53 +312,6 @@ const App: React.FC = () => {
                            </AccordionItem>
                         </div>
                     </div>
-                    <div className="lg:sticky lg:top-28">
-                        <SurfaceCodeDiagram />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {/* The Science: Transformer Decoder */}
-        <section className="py-24 bg-stone-900 text-stone-100 overflow-hidden relative">
-            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                {/* Decorative background pattern - Gold/Stone theme */}
-                <div className="w-96 h-96 rounded-full bg-stone-600 blur-[100px] absolute top-[-100px] left-[-100px]"></div>
-                <div className="w-96 h-96 rounded-full bg-nobel-gold blur-[100px] absolute bottom-[-100px] right-[-100px]"></div>
-            </div>
-
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                     <div className="order-2 lg:order-1">
-                        <TransformerDecoderDiagram />
-                     </div>
-                     <div className="order-1 lg:order-2">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-800 text-nobel-gold text-xs font-bold tracking-widest uppercase rounded-full mb-6 border border-stone-700">
-                            THE INNOVATION
-                        </div>
-                        <h2 className="font-serif text-4xl md:text-5xl mb-6 text-white">Neural Decoding</h2>
-                        <p className="text-lg text-stone-400 mb-6 leading-relaxed">
-                            Standard decoders assume simple, independent errors. Real hardware is messier. AlphaQubit treats decoding as a sequence prediction problem, using a <strong>Recurrent Transformer</strong> architecture.
-                        </p>
-                        <p className="text-lg text-stone-400 leading-relaxed">
-                            It ingests the history of stabilizer measurements and uses "soft" analog information—probabilities rather than just binary 0s and 1s—to make highly informed predictions about logical errors.
-                        </p>
-                     </div>
-                </div>
-            </div>
-        </section>
-
-        {/* The Science: Results */}
-        <section className="py-24 bg-[#F9F8F4]">
-            <div className="container mx-auto px-6">
-                <div className="max-w-4xl mx-auto text-center mb-12">
-                    <h2 className="font-serif text-4xl md:text-5xl mb-6 text-stone-900">Outperforming the Standard</h2>
-                    <p className="text-lg text-stone-600 leading-relaxed">
-                        AlphaQubit was tested on Google's Sycamore processor and accurate simulations. It consistently outperforms "Minimum-Weight Perfect Matching" (MWPM), the industry standard, effectively making the quantum computer appear cleaner than it actually is.
-                    </p>
-                </div>
-                <div className="max-w-3xl mx-auto">
-                    <PerformanceMetricDiagram />
                 </div>
             </div>
         </section>
@@ -308,7 +322,7 @@ const App: React.FC = () => {
                 <div className="md:col-span-5 relative">
                     <div className="aspect-[3/4] md:aspect-auto md:h-full bg-stone-100 rounded-xl overflow-hidden relative border border-stone-200 shadow-md">
                         <img 
-                          src="components/IMG_4072.JPG" 
+                          src="IMG_4072.JPG" 
                           alt="Sandy Alvo" 
                           className="w-full h-full object-contain opacity-90" 
                         />
@@ -340,6 +354,17 @@ const App: React.FC = () => {
              </div>
         </section>
 
+        {/* Testimonials */}
+        <section id="testimonials" className="py-24 bg-white border-t border-stone-200">
+            <div className="container mx-auto px-6">
+                <div className="text-center mb-12">
+                    <div className="inline-block mb-3 text-xs font-bold tracking-widest text-stone-500 uppercase">TESTIMONIOS</div>
+                    <h2 className="font-serif text-4xl md:text-5xl mb-4 text-stone-900">Lo que dicen nuestros clientes</h2>
+                </div>
+                <TestimonialCarousel />
+            </div>
+        </section>
+
         {/* Agenda */}
         <section id="agenda" className="py-24 bg-[#F9F8F4] border-t border-stone-200">
              <div className="container mx-auto px-6">
@@ -364,53 +389,6 @@ const App: React.FC = () => {
                     </div>
                 </div>
              </div>
-        </section>
-
-        {/* Authors */}
-        <section id="authors" className="py-24 bg-[#F5F4F0] border-t border-stone-300">
-           <div className="container mx-auto px-6">
-                <div className="text-center mb-16">
-                    <div className="inline-block mb-3 text-xs font-bold tracking-widest text-stone-500 uppercase">RESEARCH TEAM</div>
-                    <h2 className="font-serif text-3xl md:text-5xl mb-4 text-stone-900">Key Contributors</h2>
-                    <p className="text-stone-500 max-w-2xl mx-auto">A collaboration between Google DeepMind and Google Quantum AI.</p>
-                </div>
-                
-                <div className="flex flex-col md:flex-row gap-8 justify-center items-center flex-wrap">
-                    <AuthorCard 
-                        name="Johannes Bausch" 
-                        role="Google DeepMind" 
-                        delay="0s" 
-                    />
-                    <AuthorCard 
-                        name="Andrew W. Senior" 
-                        role="Google DeepMind" 
-                        delay="0.1s" 
-                    />
-                    <AuthorCard 
-                        name="Francisco J. H. Heras" 
-                        role="Google DeepMind" 
-                        delay="0.2s" 
-                    />
-                    <AuthorCard 
-                        name="Thomas Edlich" 
-                        role="Google DeepMind" 
-                        delay="0.3s" 
-                    />
-                    <AuthorCard 
-                        name="Alex Davies" 
-                        role="Google DeepMind" 
-                        delay="0.4s" 
-                    />
-                    <AuthorCard 
-                        name="Michael Newman" 
-                        role="Google Quantum AI" 
-                        delay="0.5s" 
-                    />
-                </div>
-                <div className="text-center mt-12">
-                    <p className="text-stone-500 italic">And many others contributing to hardware, theory, and engineering.</p>
-                </div>
-           </div>
         </section>
 
       </main>

@@ -17,6 +17,9 @@ declare global {
       pointLight: any;
       spotLight: any;
       group: any;
+      fog: any;
+      // Catch-all for standard HTML elements and others to fix 'Property does not exist' errors
+      [elemName: string]: any;
     }
   }
 }
