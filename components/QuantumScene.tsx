@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -9,8 +8,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment, Box } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Add missing type declarations for R3F intrinsic elements
-// Augmenting both global JSX and React.JSX to ensure compatibility with different TS/React versions
+// Comprehensive type declarations for R3F intrinsic elements to fix Vercel build errors
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -20,6 +18,9 @@ declare global {
       spotLight: any;
       group: any;
       fog: any;
+      mesh: any;
+      primitive: any;
+      object3D: any;
     }
   }
 }
@@ -33,6 +34,9 @@ declare module 'react' {
       spotLight: any;
       group: any;
       fog: any;
+      mesh: any;
+      primitive: any;
+      object3D: any;
     }
   }
 }

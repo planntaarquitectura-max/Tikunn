@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -145,10 +144,10 @@ const CourseBadge = () => {
       <div className="absolute inset-0 w-full h-full animate-spin-slow">
          <svg viewBox="0 0 100 100" width="100%" height="100%" className="overflow-visible">
            <defs>
-             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+             <path id="course_badge_circle_path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
            </defs>
            <text fontSize="10.5">
-             <textPath href="#circlePath" className="font-serif font-bold tracking-[0.18em] uppercase fill-stone-800">
+             <textPath href="#course_badge_circle_path" className="font-serif font-bold tracking-[0.18em] uppercase fill-stone-800">
                • Próximos Cursos • Inscripciones Abiertas
              </textPath>
            </text>
