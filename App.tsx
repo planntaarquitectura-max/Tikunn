@@ -317,7 +317,7 @@ const App: React.FC = () => {
                 <div className="md:col-span-5 relative">
                     <div className="aspect-[3/4] md:aspect-auto md:h-full bg-black rounded-xl overflow-hidden relative border border-stone-800 shadow-md">
                         <img 
-                          src="IMG_4072.JPG" 
+                          src="components/IMG_4072.JPG" 
                           alt="Sandy Alvo" 
                           className="w-full h-full object-contain" 
                         />
