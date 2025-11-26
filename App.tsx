@@ -142,13 +142,13 @@ const CourseBadge = () => {
       className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-20 flex items-center justify-center w-32 h-32 group cursor-pointer animate-fade-in hover:scale-105 transition-transform duration-300"
     >
       {/* Rotating Text Ring */}
-      <div className="absolute inset-0 w-full h-full animate-[spin_10s_linear_infinite]">
+      <div className="absolute inset-0 w-full h-full animate-spin-slow">
          <svg viewBox="0 0 100 100" width="100%" height="100%" className="overflow-visible">
            <defs>
              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
            </defs>
            <text fontSize="10.5">
-             <textPath xlinkHref="#circlePath" className="font-serif font-bold tracking-[0.18em] uppercase fill-stone-800">
+             <textPath href="#circlePath" className="font-serif font-bold tracking-[0.18em] uppercase fill-stone-800">
                • Próximos Cursos • Inscripciones Abiertas
              </textPath>
            </text>
@@ -317,7 +317,7 @@ const App: React.FC = () => {
                 <div className="md:col-span-5 relative">
                     <div className="aspect-[3/4] md:aspect-auto md:h-full bg-black rounded-xl overflow-hidden relative border border-stone-800 shadow-md">
                         <img 
-                          src="https://raw.githubusercontent.com/planntaarquitectura-max/Tikunn/refs/heads/main/IMG_4072.JPG?token=GHSAT0AAAAAADP2WUYDWRSCYDAGSWAPFQRI2JHKSHQ" 
+                          src="https://raw.githubusercontent.com/planntaarquitectura-max/Tikunn/main/IMG_4072.JPG" 
                           alt="Sandy Alvo" 
                           className="w-full h-full object-contain" 
                         />
