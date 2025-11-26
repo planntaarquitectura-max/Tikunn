@@ -54,7 +54,7 @@ const TestimonialCarousel = () => {
       role: "Arquitecta"
     },
      {
-      quote: "Las sesiones de repatterning son magia pura. Me siento más ligero, enfocado y con una nueva dirección en mi vida personal.",
+      quote: "Cada sesión me ayuda a ver con claridad lo que antes no podía reconocer. Salgo más en paz, más centrado y con un sentido renovado de dirección en mi vida.",
       author: "Javier Martínez",
       role: "Consultor"
     }
@@ -243,7 +243,7 @@ const App: React.FC = () => {
             Transforming <br/> Inner Patterns <br/><span className="italic font-normal text-stone-600 text-3xl md:text-5xl block mt-4">for Extraordinary Lives</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-stone-700 font-light leading-relaxed mb-12">
-            Resonancias para transformar tu realidad
+            Cambia tu interior, expande tu realidad
           </p>
           
           <div className="flex justify-center">
@@ -272,13 +272,8 @@ const App: React.FC = () => {
             </div>
             <div className="md:col-span-8 text-lg text-stone-600 leading-relaxed space-y-6">
               <p>
-                <span className="text-5xl float-left mr-3 mt-[-8px] font-serif text-nobel-gold">T</span>ikún (טיקון), un término hebreo con raíz ancestral, expresa el principio de corrección profunda: realinear tu campo energético para liberar patrones limitantes y reconfigurar tu realidad desde la base.
-              </p>
-              <p>
-                Cada persona nace con un mapa frecuencial único que explica por qué, incluso alcanzando éxito externo, siguen apareciendo bloqueos en ingresos, relaciones, misión y expansión.
-              </p>
-              <p>
-                En Tikunn trabajamos con <strong>Resonance Repatterning</strong>, coherencia cuántica y neurociencia aplicada para disolver interferencias inconscientes, restaurar tu coherencia interna y activar estados de flujo que multiplican tu claridad estratégica, tu poder de decisión, tu magnetismo y tu creatividad exponencial.
+                <span className="text-5xl float-left mr-3 mt-[-8px] font-serif text-nobel-gold">T</span>ikunn viene de la palabra aramea Tikún, que significa “corrección”.
+                Se refiere a los aspectos que estamos llamados a reparar en esta vida, de manera individual, para convertirnos en una contribución colectiva a todo lo que nos rodea. Nacemos con un Tikún que muestra cómo nuestro pasado influye en nuestro presente y cómo cada elección que hacemos abre —o cierra— las posibilidades de nuestro futuro.
               </p>
             </div>
           </div>
