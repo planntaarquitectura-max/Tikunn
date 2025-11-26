@@ -317,7 +317,7 @@ const App: React.FC = () => {
                 <div className="md:col-span-5 relative">
                     <div className="aspect-[3/4] md:aspect-auto md:h-full bg-black rounded-xl overflow-hidden relative border border-stone-800 shadow-md">
                         <img 
-                          src="components/IMG_4072.JPG" 
+                          src="https://raw.githubusercontent.com/planntaarquitectura-max/Tikunn/refs/heads/main/IMG_4072.JPG?token=GHSAT0AAAAAADP2WUYDWRSCYDAGSWAPFQRI2JHKSHQ" 
                           alt="Sandy Alvo" 
                           className="w-full h-full object-contain" 
                         />
@@ -374,7 +374,14 @@ const App: React.FC = () => {
                         <div className="p-8 bg-white border border-stone-200 rounded-xl hover:border-nobel-gold/50 transition-colors shadow-sm group">
                             <h3 className="font-serif text-2xl mb-2 text-stone-900 group-hover:text-nobel-gold transition-colors">Sesiones 1:1</h3>
                             <p className="text-stone-500 mb-6">Reserva tu espacio para un proceso profundo de transformación personal.</p>
-                            <button className="text-sm font-bold tracking-widest uppercase border-b border-stone-300 pb-1 hover:border-nobel-gold hover:text-nobel-gold transition-colors">Reservar Ahora</button>
+                            <a 
+                                href="https://calendly.com/tikunn/sesion?back=1&month=2025-11" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm font-bold tracking-widest uppercase border-b border-stone-300 pb-1 hover:border-nobel-gold hover:text-nobel-gold transition-colors inline-block"
+                            >
+                                Reservar Ahora
+                            </a>
                         </div>
                         <div className="p-8 bg-white border border-stone-200 rounded-xl hover:border-nobel-gold/50 transition-colors shadow-sm group">
                             <h3 className="font-serif text-2xl mb-2 text-stone-900 group-hover:text-nobel-gold transition-colors">Próximos Talleres</h3>
