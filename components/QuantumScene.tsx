@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -9,6 +10,7 @@ import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment
 import * as THREE from 'three';
 
 // Add missing type declarations for R3F intrinsic elements
+// Augmenting both global JSX and React.JSX to ensure compatibility with different TS/React versions
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -18,8 +20,19 @@ declare global {
       spotLight: any;
       group: any;
       fog: any;
-      // Catch-all for standard HTML elements and others to fix 'Property does not exist' errors
-      [elemName: string]: any;
+    }
+  }
+}
+
+declare module 'react' {
+  namespace JSX {
+    interface IntrinsicElements {
+      meshStandardMaterial: any;
+      ambientLight: any;
+      pointLight: any;
+      spotLight: any;
+      group: any;
+      fog: any;
     }
   }
 }
@@ -55,13 +68,12 @@ const CentralDroplet = () => {
             <Sphere args={[0.5, 64, 64]} position={[0, 0.5, 0]}>
                 <MeshDistortMaterial
                     color="#C5A059"
-                    envMapIntensity={2}
+                    envMapIntensity={3}
                     clearcoat={1}
-                    clearcoatRoughness={0.1}
-                    metalness={0.9}
-                    roughness={0.1}
-                    distort={0.3}
-                    speed={2}
+                    clearcoatRoughness={0}
+                    metalness={1}
+                    roughness={0}
+                    distort={0} // Perfect sphere to match reference image
                 />
             </Sphere>
         </Float>
@@ -90,8 +102,8 @@ export const HeroScene: React.FC = () => {
             <RippleRing radius={6.5} delay={5} opacity={0.1} />
         </group>
 
-        {/* Studio environment for reflections */}
-        <Environment preset="city" />
+        {/* Environment - Umhlanga Sunrise HDRI for warm, golden hour beach reflections */}
+        <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/umhlanga_sunrise_1k.hdr" />
         
         {/* Fog to blend into the background page color */}
         <fog attach="fog" args={['#F9F8F4', 5, 20]} />

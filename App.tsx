@@ -315,11 +315,11 @@ const App: React.FC = () => {
         <section id="impact" className="py-24 bg-white border-t border-stone-200">
              <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12">
                 <div className="md:col-span-5 relative">
-                    <div className="aspect-[3/4] md:aspect-auto md:h-full bg-stone-100 rounded-xl overflow-hidden relative border border-stone-200 shadow-md">
+                    <div className="aspect-[3/4] md:aspect-auto md:h-full bg-black rounded-xl overflow-hidden relative border border-stone-800 shadow-md">
                         <img 
                           src="IMG_4072.JPG" 
                           alt="Sandy Alvo" 
-                          className="w-full h-full object-contain opacity-90" 
+                          className="w-full h-full object-contain" 
                         />
                     </div>
                 </div>
@@ -333,7 +333,7 @@ const App: React.FC = () => {
                         Fundé Tikunn como un espacio de expansión: un laboratorio de transformación donde desarrollo seminarios, clases maestras, experiencias de repatterning y proyectos que buscan elevar la conciencia colectiva y catalizar nuevas líneas de realidad.
                     </p>
                     <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-                        Mi camino integra la profundidad de los Programas de 12 Pasos, el trabajo con el niño interior y una especialización en Sistemas Disfuncionales y C-PTSD (Trauma Complejo). Resido en Baja California, donde equilibro mi práctica terapéutica con la maternidad consciente junto a mi esposo y nuestros hijos, integrando en mi trabajo la comprensión profunda de las dinámicas familiares y sistémicas.
+                        Integro diversas herramientas terapéuticas en mi práctica, entre ellas la psicoterapia, la facilitación de procesos individuales, la física cuántica aplicada, la decodificación emocional y las constelaciones familiares. También trabajo de manera profunda con el C-PTSD, el Niño Interior, el reparenting y la actualización de patrones que limitan la vida cotidiana. Mi camino incorpora además la base de los Programas de 12 Pasos, la comprensión de los sistemas disfuncionales y una mirada sistémica que atraviesa cada proceso. Vivo en Baja California, donde equilibro la práctica terapéutica con la maternidad consciente junto a mi familia, integrando una visión humana y real de las dinámicas personales y familiares.
                     </p>
                     <p className="text-lg text-stone-600 mb-8 leading-relaxed">
                         Acompaño a empresarios, líderes y familias de alto rendimiento a disolver interferencias inconscientes, activar campos de coherencia y amplificar impacto, claridad y propósito desde una comprensión profunda de la dinámica humana y la expansión de la conciencia.
