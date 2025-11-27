@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -8,6 +7,15 @@ import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment, Box } from '@react-three/drei';
 import * as THREE from 'three';
+
+// Fix for Vercel/TypeScript build errors: Declare Three.js elements and allow all intrinsic elements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elemName: string]: any;
+    }
+  }
+}
 
 const RippleRing = ({ radius, delay, opacity }: { radius: number, delay: number, opacity: number }) => {
     const ref = useRef<THREE.Mesh>(null);
