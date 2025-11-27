@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -138,25 +139,25 @@ const CourseBadge = () => {
           window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
       }}
-      className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-20 flex items-center justify-center w-32 h-32 group cursor-pointer animate-fade-in hover:scale-105 transition-transform duration-300"
+      className="absolute bottom-8 right-6 md:bottom-12 md:right-12 z-20 flex items-center justify-center w-44 h-44 group cursor-pointer animate-fade-in hover:scale-105 transition-transform duration-300"
     >
       {/* Rotating Text Ring */}
       <div className="absolute inset-0 w-full h-full animate-spin-slow">
          <svg viewBox="0 0 100 100" width="100%" height="100%" className="overflow-visible">
            <defs>
-             <path id="course_badge_circle_path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
            </defs>
-           <text fontSize="10.5">
-             <textPath href="#course_badge_circle_path" className="font-serif font-bold tracking-[0.18em] uppercase fill-stone-800">
-               • Próximos Cursos • Inscripciones Abiertas
+           <text fontSize="10.2">
+             <textPath href="#circlePath" className="font-serif font-bold tracking-[0.11em] uppercase fill-stone-800">
+               • INSCRIPCIÓN • NUEVOS CURSOS
              </textPath>
            </text>
          </svg>
       </div>
       
-      {/* Center Circle */}
-      <div className="absolute w-14 h-14 bg-nobel-gold rounded-full flex items-center justify-center text-white shadow-lg shadow-nobel-gold/30 border-2 border-white group-hover:bg-stone-900 transition-colors duration-300">
-         <Calendar size={24} className="stroke-[1.5]" />
+      {/* Center Circle - Shiny Gold Gradient matching the sphere */}
+      <div className="absolute w-20 h-20 bg-gradient-to-br from-[#E6C985] to-[#C5A059] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#C5A059]/40 border-2 border-white group-hover:brightness-110 transition-all duration-300">
+         <Calendar size={32} className="stroke-[1.5]" />
       </div>
     </a>
   );
@@ -195,11 +196,12 @@ const App: React.FC = () => {
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#F9F8F4]/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-8 h-8 bg-nobel-gold rounded-full flex items-center justify-center text-white font-serif font-bold text-xl shadow-sm pb-1">T</div>
-            <span className={`font-serif font-bold text-lg tracking-wide transition-opacity ${scrolled ? 'opacity-100' : 'opacity-0 md:opacity-100'}`}>
-              TRANSFORMING <span className="font-normal text-stone-500">LIVES</span>
-            </span>
+          <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img 
+              src="https://github.com/planntaarquitectura-max/Tikunn/blob/main/SF.png?raw=true" 
+              alt="Tikunn" 
+              className="h-24 md:h-36 w-auto object-contain"
+            />
           </div>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-stone-600">
@@ -235,9 +237,6 @@ const App: React.FC = () => {
         <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(249,248,244,0.0)_0%,rgba(249,248,244,0.3)_40%,rgba(249,248,244,1)_100%)]" />
 
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <div className="inline-block mb-4 px-3 py-1 border border-nobel-gold text-nobel-gold text-xs tracking-[0.2em] uppercase font-bold rounded-full backdrop-blur-sm bg-white/30">
-            Nature • Nov 2024
-          </div>
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-tight md:leading-[0.9] mb-8 text-stone-900 drop-shadow-sm">
             Transforming <br/> Inner Patterns <br/><span className="italic font-normal text-stone-600 text-3xl md:text-5xl block mt-4">for Extraordinary Lives</span>
           </h1>
@@ -283,9 +282,6 @@ const App: React.FC = () => {
             <div className="container mx-auto px-6">
                 <div className="max-w-4xl mx-auto">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 text-stone-600 text-xs font-bold tracking-widest uppercase rounded-full mb-6 border border-stone-200">
-                            <BookOpen size={14}/> THE SYSTEM
-                        </div>
                         <h2 className="font-serif text-4xl md:text-5xl mb-8 text-stone-900">Experiencias</h2>
                         
                         <div className="mt-2">
@@ -316,7 +312,7 @@ const App: React.FC = () => {
                 <div className="md:col-span-5 relative">
                     <div className="aspect-[3/4] md:aspect-auto md:h-full bg-black rounded-xl overflow-hidden relative border border-stone-800 shadow-md">
                         <img 
-                          src="https://raw.githubusercontent.com/planntaarquitectura-max/Tikunn/main/IMG_4072.JPG" 
+                          src="https://github.com/planntaarquitectura-max/Tikunn/blob/main/IMG_4072.JPG?raw=true" 
                           alt="Sandy Alvo" 
                           className="w-full h-full object-contain" 
                         />
@@ -384,7 +380,7 @@ const App: React.FC = () => {
                         </div>
                         <div className="p-8 bg-white border border-stone-200 rounded-xl hover:border-nobel-gold/50 transition-colors shadow-sm group">
                             <h3 className="font-serif text-2xl mb-2 text-stone-900 group-hover:text-nobel-gold transition-colors">Próximos Talleres</h3>
-                            <p className="text-stone-500 mb-6">Inscripciones abiertas para "Resonancia Vital" - Octubre 2024.</p>
+                            <p className="text-stone-500 mb-6">Inscripciones abiertas para "Tikún Ancestral Febrero 2025".</p>
                             <button className="text-sm font-bold tracking-widest uppercase border-b border-stone-300 pb-1 hover:border-nobel-gold hover:text-nobel-gold transition-colors">Ver Detalles</button>
                         </div>
                     </div>
