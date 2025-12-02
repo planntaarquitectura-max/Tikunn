@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transforming Inner Patterns for Extraordinary Lives</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind with Plugins -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -46,6 +47,15 @@
       body {
         background-color: #F9F8F4;
         color: #1a1a1a;
+        /* Fallback fonts if Tailwind fails to load immediately */
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4, .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
+      /* Ensure content is visible even if animation scripts fail */
+      .opacity-0 {
+        opacity: 0;
       }
       @media print {
         nav, footer, button {
