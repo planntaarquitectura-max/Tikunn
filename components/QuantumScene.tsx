@@ -5,16 +5,22 @@
 
 import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment, Box } from '@react-three/drei';
+import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment, Box, Html, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Fix for Vercel/TypeScript build errors: Declare Three.js elements and allow all intrinsic elements
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      [elemName: string]: any;
-    }
-  }
+// Loader component to show while 3D assets (HDRI) are loading
+function Loader() {
+  const { progress } = useProgress();
+  return (
+    <Html center>
+      <div className="flex flex-col items-center justify-center bg-[#F9F8F4]/80 p-4 rounded-lg backdrop-blur-sm border border-[#C5A059]/30 shadow-lg">
+        <div className="w-12 h-12 border-4 border-[#C5A059] border-t-transparent rounded-full animate-spin mb-2"></div>
+        <div className="text-[#C5A059] font-serif text-sm tracking-widest uppercase">
+          Cargando {progress.toFixed(0)}%
+        </div>
+      </div>
+    </Html>
+  );
 }
 
 const RippleRing = ({ radius, delay, opacity }: { radius: number, delay: number, opacity: number }) => {
@@ -64,7 +70,7 @@ export const HeroScene: React.FC = () => {
   return (
     <div className="absolute inset-0 z-0">
       <Canvas camera={{ position: [0, 2, 8], fov: 35 }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
             {/* Lighting setup for light tones */}
             <ambientLight intensity={1.5} />
             <spotLight position={[10, 10, 5]} angle={0.5} penumbra={1} intensity={2} color="#ffffff" />
@@ -98,7 +104,7 @@ export const QuantumComputerScene: React.FC = () => {
   return (
     <div className="w-full h-full absolute inset-0">
       <Canvas camera={{ position: [0, 0, 4.5], fov: 45 }}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
             <ambientLight intensity={1} />
             <spotLight position={[5, 5, 5]} angle={0.3} penumbra={1} intensity={2} color="#C5A059" />
             <pointLight position={[-5, -5, -5]} intensity={0.5} />
@@ -163,4 +169,18 @@ export const QuantumComputerScene: React.FC = () => {
       </Canvas>
     </div>
   );
+}
+
+// Global declaration for standard Three.js elements in JSX to satisfy strict TS compilers
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      meshStandardMaterial: any;
+      ambientLight: any;
+      spotLight: any;
+      pointLight: any;
+      fog: any;
+      [elemName: string]: any;
+    }
+  }
 }
