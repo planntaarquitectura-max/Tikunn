@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -69,7 +68,7 @@ const CentralDroplet = () => {
 
 export const HeroScene: React.FC = () => {
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none">
+    <div className="absolute inset-0 z-0">
       <Canvas camera={{ position: [0, 2, 8], fov: 35 }}>
         <Suspense fallback={<Loader />}>
             {/* Lighting setup for light tones */}
@@ -90,8 +89,8 @@ export const HeroScene: React.FC = () => {
                 <RippleRing radius={6.5} delay={5} opacity={0.1} />
             </group>
 
-            {/* Internal preset for reliable loading without external heavy files */}
-            <Environment preset="sunset" />
+            {/* Environment - Umhlanga Sunrise HDRI for warm, golden hour beach reflections */}
+            <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/umhlanga_sunrise_1k.hdr" />
             
             {/* Fog to blend into the background page color */}
             <fog attach="fog" args={['#F9F8F4', 5, 20]} />
@@ -114,12 +113,18 @@ export const QuantumComputerScene: React.FC = () => {
             <Float rotationIntensity={0.4} floatIntensity={0.2} speed={1}>
             <group rotation={[0, 0, 0]} position={[0, 0.5, 0]}>
                 {/* Main Cryostat Structure (Gold Chandelier) */}
+                
+                {/* Top Plate */}
                 <Cylinder args={[1.2, 1.2, 0.1, 64]} position={[0, 1, 0]}>
                 <meshStandardMaterial color="#C5A059" metalness={1} roughness={0.15} />
                 </Cylinder>
+                
+                {/* Middle Stage */}
                 <Cylinder args={[1, 1, 0.1, 64]} position={[0, 0.2, 0]}>
                 <meshStandardMaterial color="#C5A059" metalness={1} roughness={0.15} />
                 </Cylinder>
+                
+                {/* Bottom Stage (Mixing Chamber) */}
                 <Cylinder args={[0.6, 0.6, 0.1, 64]} position={[0, -0.6, 0]}>
                 <meshStandardMaterial color="#C5A059" metalness={1} roughness={0.15} />
                 </Cylinder>
@@ -146,7 +151,7 @@ export const QuantumComputerScene: React.FC = () => {
                 <meshStandardMaterial color="#D1D5DB" metalness={0.8} roughness={0.2} />
                 </Cylinder>
 
-                {/* Coils/Wires */}
+                {/* Coils/Wires - Copper colored */}
                 <Torus args={[0.7, 0.015, 16, 64]} position={[0, -0.2, 0]} rotation={[Math.PI/2, 0, 0]}>
                 <meshStandardMaterial color="#B87333" metalness={0.8} roughness={0.3} />
                 </Torus>
@@ -154,6 +159,7 @@ export const QuantumComputerScene: React.FC = () => {
                 <meshStandardMaterial color="#B87333" metalness={0.8} roughness={0.3} />
                 </Torus>
                 
+                {/* Central processor chip simulation at bottom */}
                 <Box args={[0.2, 0.05, 0.2]} position={[0, -0.7, 0]}>
                     <meshStandardMaterial color="#111" metalness={0.9} roughness={0.1} />
                 </Box>
@@ -165,8 +171,7 @@ export const QuantumComputerScene: React.FC = () => {
   );
 }
 
-// Explicitly declare only the Three.js elements we use to avoid polluting global JSX namespace
-// This fixes the issue where standard HTML tags might be ignored or miscalculated
+// Global declaration for standard Three.js elements in JSX to satisfy strict TS compilers
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -175,7 +180,7 @@ declare global {
       spotLight: any;
       pointLight: any;
       fog: any;
-      meshDistortMaterial: any;
+      [elemName: string]: any;
     }
   }
 }
