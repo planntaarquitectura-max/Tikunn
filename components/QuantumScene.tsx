@@ -85,8 +85,8 @@ export const HeroScene: React.FC = () => {
                 <RippleRing radius={6.5} delay={5} opacity={0.1} />
             </group>
 
-            {/* Environment - Using 'sunset' preset for reliable golden hour lighting without external fetch issues */}
-            <Environment preset="sunset" />
+            {/* Environment - Switching back to Umhlanga Sunrise for beach reflections */}
+            <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/umhlanga_sunrise_1k.hdr" />
             
             {/* Fog to blend into the background page color */}
             <fog attach="fog" args={['#F9F8F4', 5, 20]} />
