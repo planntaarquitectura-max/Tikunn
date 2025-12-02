@@ -6,16 +6,15 @@
 
 import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment, Box, Html, useProgress } from '@react-three/drei';
+import { Float, MeshDistortMaterial, Sphere, Torus, Environment, Html } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Simplified Loader to avoid potential Drei/Html conflicts in preview
+// Simplified Loader
 function Loader() {
   return (
     <Html center>
       <div className="flex flex-col items-center justify-center">
         <div className="w-8 h-8 border-2 border-[#C5A059] border-t-transparent rounded-full animate-spin"></div>
-        <p className="mt-2 text-xs text-[#C5A059] font-sans tracking-widest uppercase">Cargando...</p>
       </div>
     </Html>
   );
@@ -26,7 +25,6 @@ const RippleRing = ({ radius, delay, opacity }: { radius: number, delay: number,
     useFrame((state) => {
         if (ref.current) {
             const t = state.clock.getElapsedTime();
-            // Gentle undulating motion
             ref.current.position.z = Math.sin(t * 0.5 + delay) * 0.2;
             ref.current.rotation.x = Math.PI / 2 + Math.sin(t * 0.2 + delay) * 0.05;
             ref.current.rotation.y = Math.sin(t * 0.1 + delay) * 0.05;
@@ -57,7 +55,7 @@ const CentralDroplet = () => {
                     clearcoatRoughness={0}
                     metalness={1}
                     roughness={0}
-                    distort={0} // Perfect sphere to match reference image
+                    distort={0}
                 />
             </Sphere>
         </Float>
@@ -69,7 +67,6 @@ export const HeroScene: React.FC = () => {
     <div className="absolute inset-0 z-0">
       <Canvas camera={{ position: [0, 2, 8], fov: 35 }}>
         <Suspense fallback={<Loader />}>
-            {/* Lighting setup for light tones */}
             <ambientLight intensity={1.5} />
             <spotLight position={[10, 10, 5]} angle={0.5} penumbra={1} intensity={2} color="#ffffff" />
             <spotLight position={[-10, 5, -5]} angle={0.5} penumbra={1} intensity={1} color="#C5A059" />
@@ -77,7 +74,6 @@ export const HeroScene: React.FC = () => {
 
             <CentralDroplet />
             
-            {/* Concentric ripples */}
             <group position={[0, -1, 0]} rotation={[0.4, 0, 0]}>
                 <RippleRing radius={1.5} delay={0} opacity={0.6} />
                 <RippleRing radius={2.5} delay={1} opacity={0.5} />
@@ -87,10 +83,9 @@ export const HeroScene: React.FC = () => {
                 <RippleRing radius={6.5} delay={5} opacity={0.1} />
             </group>
 
-            {/* Environment - Using 'sunset' preset for reliable loading and warm lighting */}
+            {/* Using sunset preset for stability - provides consistent warm golden lighting similar to beach */}
             <Environment preset="sunset" />
             
-            {/* Fog to blend into the background page color */}
             <fog attach="fog" args={['#F9F8F4', 5, 20]} />
         </Suspense>
       </Canvas>
