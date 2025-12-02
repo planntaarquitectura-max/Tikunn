@@ -8,16 +8,12 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment, Box, Html, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Loader component to show while 3D assets (HDRI) are loading
+// Simplified Loader to avoid potential Drei/Html conflicts in preview
 function Loader() {
-  const { progress } = useProgress();
   return (
     <Html center>
-      <div className="flex flex-col items-center justify-center bg-[#F9F8F4]/80 p-4 rounded-lg backdrop-blur-sm border border-[#C5A059]/30 shadow-lg">
-        <div className="w-12 h-12 border-4 border-[#C5A059] border-t-transparent rounded-full animate-spin mb-2"></div>
-        <div className="text-[#C5A059] font-serif text-sm tracking-widest uppercase">
-          Cargando {progress.toFixed(0)}%
-        </div>
+      <div className="flex flex-col items-center justify-center">
+        <div className="w-8 h-8 border-2 border-[#C5A059] border-t-transparent rounded-full animate-spin"></div>
       </div>
     </Html>
   );
@@ -89,8 +85,8 @@ export const HeroScene: React.FC = () => {
                 <RippleRing radius={6.5} delay={5} opacity={0.1} />
             </group>
 
-            {/* Environment - Umhlanga Sunrise HDRI for warm, golden hour beach reflections */}
-            <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/umhlanga_sunrise_1k.hdr" />
+            {/* Environment - Using 'sunset' preset for reliable golden hour lighting without external fetch issues */}
+            <Environment preset="sunset" />
             
             {/* Fog to blend into the background page color */}
             <fog attach="fog" args={['#F9F8F4', 5, 20]} />
@@ -171,7 +167,7 @@ export const QuantumComputerScene: React.FC = () => {
   );
 }
 
-// Global declaration for standard Three.js elements in JSX to satisfy strict TS compilers
+// Minimal type definitions to satisfy Vercel/TS without aggressive global overwrites
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -180,7 +176,29 @@ declare global {
       spotLight: any;
       pointLight: any;
       fog: any;
-      [elemName: string]: any;
+      group: any;
+      div: any;
+      span: any;
+      p: any;
+      a: any;
+      button: any;
+      nav: any;
+      header: any;
+      main: any;
+      footer: any;
+      section: any;
+      h1: any;
+      h2: any;
+      h3: any;
+      h4: any;
+      img: any;
+      br: any;
+      svg: any;
+      path: any;
+      defs: any;
+      text: any;
+      textPath: any;
+      strong: any;
     }
   }
 }
