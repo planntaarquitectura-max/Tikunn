@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -96,6 +97,7 @@ export const HeroScene: React.FC = () => {
   );
 };
 
+// Removed unused QuantumComputerScene to clean up dependencies, or kept if needed but not used.
 export const QuantumComputerScene: React.FC = () => {
   return (
     <div className="w-full h-full absolute inset-0">
@@ -165,40 +167,4 @@ export const QuantumComputerScene: React.FC = () => {
       </Canvas>
     </div>
   );
-}
-
-// Minimal type definitions to satisfy Vercel/TS without aggressive global overwrites
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      meshStandardMaterial: any;
-      ambientLight: any;
-      spotLight: any;
-      pointLight: any;
-      fog: any;
-      group: any;
-      div: any;
-      span: any;
-      p: any;
-      a: any;
-      button: any;
-      nav: any;
-      header: any;
-      main: any;
-      footer: any;
-      section: any;
-      h1: any;
-      h2: any;
-      h3: any;
-      h4: any;
-      img: any;
-      br: any;
-      svg: any;
-      path: any;
-      defs: any;
-      text: any;
-      textPath: any;
-      strong: any;
-    }
-  }
 }
