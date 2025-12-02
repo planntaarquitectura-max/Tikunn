@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -9,12 +8,29 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, Torus, Cylinder, Stars, Environment, Box, Html, useProgress } from '@react-three/drei';
 import * as THREE from 'three';
 
+// Fix for Vercel/TypeScript build errors:
+// Explicitly define Three.js elements in JSX namespace so the compiler recognizes them.
+// We DO NOT use a catch-all [x:string]:any here, to avoid breaking standard HTML elements.
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      ambientLight: any;
+      spotLight: any;
+      pointLight: any;
+      group: any;
+      fog: any;
+      meshStandardMaterial: any;
+    }
+  }
+}
+
 // Simplified Loader to avoid potential Drei/Html conflicts in preview
 function Loader() {
   return (
     <Html center>
       <div className="flex flex-col items-center justify-center">
         <div className="w-8 h-8 border-2 border-[#C5A059] border-t-transparent rounded-full animate-spin"></div>
+        <p className="mt-2 text-xs text-[#C5A059] font-sans tracking-widest uppercase">Cargando...</p>
       </div>
     </Html>
   );
@@ -86,7 +102,7 @@ export const HeroScene: React.FC = () => {
                 <RippleRing radius={6.5} delay={5} opacity={0.1} />
             </group>
 
-            {/* Environment - Switching back to Umhlanga Sunrise for beach reflections */}
+            {/* Environment - Using Umhlanga Sunrise for beach reflections as requested */}
             <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/umhlanga_sunrise_1k.hdr" />
             
             {/* Fog to blend into the background page color */}
