@@ -10,7 +10,7 @@ import * as THREE from 'three';
 
 // Fix for Vercel/TypeScript build errors:
 // Explicitly define Three.js elements in JSX namespace so the compiler recognizes them.
-// We DO NOT use a catch-all [x:string]:any here, to avoid breaking standard HTML elements.
+// Added [elemName: string]: any; to handle standard HTML elements that might be missing from the type definitions.
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -20,6 +20,7 @@ declare global {
       group: any;
       fog: any;
       meshStandardMaterial: any;
+      [elemName: string]: any;
     }
   }
 }
