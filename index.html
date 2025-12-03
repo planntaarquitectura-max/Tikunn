@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,19 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transforming Inner Patterns for Extraordinary Lives</title>
     
-    <!-- Script to suppress the specific Tailwind CDN warning in the console -->
-    <script>
-      (function() {
-        var originalWarn = console.warn;
-        console.warn = function(...args) {
-          if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
-            return;
-          }
-          originalWarn.apply(console, args);
-        };
-      })();
-    </script>
-
     <!-- Removed 'line-clamp' plugin to fix console warning -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,14 +73,16 @@
   <script type="importmap">
 {
   "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
-    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
-    "three": "https://aistudiocdn.com/three@^0.181.1",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.553.0"
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.16.8?external=react,react-dom,three",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.108.0?external=react,react-dom,three,@react-three/fiber",
+    "three": "https://esm.sh/three@0.165.0",
+    "framer-motion": "https://esm.sh/framer-motion@11.2.10?external=react,react-dom",
+    "lucide-react": "https://esm.sh/lucide-react@0.395.0?external=react,react-dom",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/"
   }
 }
 </script>

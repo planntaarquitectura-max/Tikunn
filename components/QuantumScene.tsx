@@ -1,3 +1,4 @@
+
 // @ts-nocheck
 /**
  * @license
@@ -83,8 +84,8 @@ export const HeroScene: React.FC = () => {
                 <RippleRing radius={6.5} delay={5} opacity={0.1} />
             </group>
 
-            {/* Using sunset preset for stability - provides consistent warm golden lighting similar to beach */}
-            <Environment preset="sunset" />
+            {/* Restored Beach HDRI as requested */}
+            <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/umhlanga_sunrise_1k.hdr" />
             
             <fog attach="fog" args={['#F9F8F4', 5, 20]} />
         </Suspense>
