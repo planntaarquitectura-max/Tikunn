@@ -380,7 +380,7 @@ const App: React.FC = () => {
                         </div>
                         <div className="p-8 bg-white border border-stone-200 rounded-xl hover:border-nobel-gold/50 transition-colors shadow-sm group">
                             <h3 className="font-serif text-2xl mb-2 text-stone-900 group-hover:text-nobel-gold transition-colors">Próximos Talleres</h3>
-                            <p className="text-stone-500 mb-6">Inscripciones abiertas para "Tikún Ancestral Febrero 2025".</p>
+                            <p className="text-stone-500 mb-6">Inscripciones abiertas para "Espiral de Intenciones Diciembre 2025".</p>
                             <button className="text-sm font-bold tracking-widest uppercase border-b border-stone-300 pb-1 hover:border-nobel-gold hover:text-nobel-gold transition-colors">Ver Detalles</button>
                         </div>
                     </div>
